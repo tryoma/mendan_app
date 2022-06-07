@@ -1,0 +1,251 @@
+---
+ja:
+  activerecord:
+    models:
+      avatar: アバター
+      buy_site: "「買う」マスタ"
+      daily_score:
+      declaration: 宣言マスタ
+      donate_organizer: イベント企業
+      donate: イベントを管理するテーブル
+      feedback: フィードバック内容
+      incentive: インセンティブ
+      inquiry: 問合せ
+      notification: 全体通知
+      organizer: 企業マスタ
+      personal_notification: 個人通知
+      season: シーズン
+      stage_avatar: ステージアバター
+      stage_incentive: ステージインセンティブ
+      stage: ステージ
+      understand: アクション知る
+      user_avatar: ユーザーアバター
+      user_donate_score:
+      user_donate: ユーザー寄付
+      user_gpa_info: ユーザーのGreenPontaActionの情報を管理するテーブル
+      user_select_incentive: インセンティブSelect
+      user_select_understand: アクション知る
+      user_winning_incentive: 当選履歴
+      user: ユーザー
+    attributes:
+      avatar:
+        id: ID
+        name: アバター名
+        stage_id: ステージID
+        created_at: 作成日
+        updated_at: 更新日
+      buy_site:
+        id: ID
+        name: サイト名
+        url: サイトURL
+        description: サイト説明
+        score_description: サイトのスコア付与説明
+        start_on: 掲載開始日
+        end_on: 掲載終了日
+        created_at: 作成日
+        updated_at: 更新日
+      daily_score:
+        user_id: ユーザーID
+        id: ID
+        recorded_on: 記録日
+        score: スコア
+        walking_score: 歩くのスコア
+        steps: 歩数
+        declare_score: 宣言するのスコア
+        declare_ids: 選択した宣言内容
+        understand_score: 知るのスコア
+        created_at: 作成日
+        updated_at: 更新日
+        buy_score: 買うのスコア
+      declaration:
+        id: ID
+        content: 宣言内容
+        start_on: 宣言の適用開始日
+        end_on: 宣言の適用終了日
+        created_at: 作成日
+        updated_at: 更新日
+      donate_organizer:
+        id: ID
+        donate_id: イベントID
+        organizer_id: 団体ID
+        created_at: 作成日
+        updated_at: 更新日
+      donate:
+        id: ID
+        name: イベント名
+        start_at: 開始日時
+        end_at: 終了日時
+        total_score: トータルスコア
+        overview: 概要
+        donate: 寄付内容
+        donation_details: 寄付詳細
+        created_at: 作成日
+        updated_at: 更新日
+        season_id: シーズンID
+        area_id: 地域ID
+        goal_score: 目標スコア
+      feedback:
+        id: ID
+        user_id: ユーザーID
+        title: タイトル
+        content: フィードバック内容
+        recorded_at: フィードバック日時
+        created_at: 作成日
+        updated_at: 更新日
+      incentive:
+        id: ID
+        type: インセンティブの種別 1
+        name: インセンティブ名
+        organizer_id: 企業ID
+        start_on:
+        end_on:
+        ponta_point: ポンタポイント
+        need_ponta_id: ポンタID登録要否フラグ
+        number_of_winners: 当選者数
+        contents: 特典内容
+        overview: 特典概要
+        winning_notification: 当選通知
+        other: その他注意事項
+        created_at: 作成日
+        updated_at: 更新日
+      inquiry:
+        id: ID
+        user_id: ユーザーID
+        send_at: 送信日時
+        created_at: 作成日
+        updated_at: 更新日
+        number: 問い合わせ番号
+      notification:
+        id: ID
+        type: お知らせの種別
+        title: タイトル
+        message: メッセージ
+        notified_at: お知らせ日
+        created_at: 作成日
+        updated_at: 更新日
+      organizer:
+        id: ID
+        name: 団体
+        created_at: 作成日
+        updated_at: 更新日
+        description: 団体説明
+        url: 団体サイトURL
+      personal_notification:
+        id: ID
+        user_id: ユーザーID
+        title: タイトル
+        message: メッセージ
+        notified_at: お知らせ日
+        already_read: 既読フラグ
+        created_at: 作成日
+        updated_at: 更新日
+      season:
+        id: ID
+        number: シーズン数
+        start_at: 開始日時
+        end_at: 終了日時
+        created_at: 作成日
+        updated_at: 更新日
+      stage_avatar:
+        id: ID
+        stage_id: ステージID
+        avatar_id: アバターID
+        created_at: 作成日
+        updated_at: 更新日
+      stage_incentive:
+        id: ID
+        incentive_id: インセンティブID
+        stage_id: ステージID
+        created_at: 作成日
+        updated_at: 更新日
+      stage:
+        id: ID
+        season_id: シーズンID
+        stage_level: ステージレベル
+        title_id: 称号ID
+        score_from: ステージのスコアの範囲(FROM)
+        score_to: ステージのスコアの範囲(TO)
+        created_at: 作成日
+        updated_at: 更新日
+      understand:
+        id: ID
+        company: 企業名
+        title: タイトル
+        url: リンクURL
+        score: 獲得スコア
+        start_on: 適用開始日
+        end_on: 適用終了日
+        created_at: 作成日
+        updated_at: 更新日
+      user_avatar:
+        id: ID
+        user_id: ユーザーID
+        avatar_id: アバターID
+        created_at: 作成日
+        updated_at: 更新日
+      user_donate_score:
+        id: ID
+        user_id:
+        donate_id:
+        area_id:
+        score:
+        created_at: 作成日
+        updated_at: 更新日
+      user_donate:
+        id: ID
+        user_id: ユーザーID
+        donate_id: 寄付イベントID
+        created_at: 作成日
+        updated_at: 更新日
+        start_at: 寄付イベント参加開始日時
+        end_at: 寄付イベント参加開始日時
+      user_gpa_info:
+        id: ID
+        user_id: ユーザーID
+        stage_id: ステージID
+        lifelong_score: 生涯スコア
+        season_total_score: 現在のシーズンの総スコア
+        created_at: 作成日
+        updated_at: 更新日
+      user_select_incentive:
+        id: ID
+        user_id: ユーザーID
+        incentive_id: インセンティブID
+        entry_on: 応募日
+        created_at: 作成日
+        updated_at: 更新日
+      user_select_understand:
+        id: ID
+        user_id: ユーザーID
+        understand_id: 企業取組ID
+        select_at: 選択日時
+        created_at: 作成日
+        updated_at: 更新日
+      user_winning_incentive:
+        id: ID
+        user_id: ユーザーID
+        incentive_id: インセンティブID
+        won_on: 当選日
+        acceptance_period_on: 受取期限日
+        already_received: 受取済みフラグ
+        personal_notification_id: 個人通知ID
+        created_at: 作成日
+        updated_at: 更新日
+      user:
+        id: ID
+        nickname: ニックネーム
+        prefecture_id: 都道府県ID
+        signup_at: サインアップ日
+        uuid: UUID
+        created_at: 作成日
+        updated_at: 更新日
+        avatar_id: アバターID
+        ponta_id_linked:
+  activemodel:
+    models:
+      inquiry_form: お問い合わせフォーム
+    attributes:
+      inquiry_form:
+        email: メールアドレス
+        kind_of: お問い合わせ種別
+        content: お問い合わせ内容

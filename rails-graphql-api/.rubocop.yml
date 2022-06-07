@@ -1,0 +1,139 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 3.0.2
+  DisplayCopNames: true
+  NewCops: enable
+  Include:
+    - Gemfile
+    - app/**/*.rb
+    - spec/**/*.rb
+    - config/**/*.rb
+    - scripts/**/*.rb
+    - lib/**/*.rb
+    - lib/**/*.rake
+  Exclude:
+    - vendor/**/*
+    - db/**/*
+    - bin/**
+    - webview/**/*
+
+Rails:
+  Enabled: true
+
+###################################### Layout ######################################
+
+# 一行あたりの文字数
+Layout/LineLength:
+  Max: 128
+
+# メソッドの行数
+Metrics/MethodLength:
+  Max: 30
+
+###################################### Metrics ######################################
+
+# AbcSize
+# 参考: https://qiita.com/mtsuge/items/e56015c93ce1ae8afd63
+Metrics/AbcSize:
+  Max: 50
+
+# ブロックの長さ
+# Rspec、Rake、設定系のスクリプトは対象外する
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'lib/tasks/**/*'
+    - 'config/**/*'
+
+# Moduleの長さ
+# Rspecは対象外する
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/**/*'
+
+# 循環的複雑度
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+# 複雑度
+Metrics/PerceivedComplexity:
+  Max: 12
+
+###################################### Style ######################################
+
+# 日本語の許可
+Style/AsciiComments:
+  Enabled: false
+
+# !!の許可
+Style/DoubleNegation:
+  Enabled: false
+
+###################################### Rails ######################################
+
+# Rails.rootを使ったファイルパスの指定
+# Rails.root.join('**', '*')形式にする
+Rails/FilePath:
+  EnforcedStyle: arguments
+
+# 許可するfind_by_xxxxxの定義
+Rails/DynamicFindBy:
+  Whitelist:
+    - find_by_cache
+
+# 微妙にバグってるらしい
+Rails/InverseOf:
+  Enabled: false
+
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    - gpa_dev
+
+###################################### Rspec ######################################
+
+# Rspecのテストケースの行数
+RSpec/ExampleLength:
+  Max: 10
+
+# letの数
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+# テストケースのネストの数
+RSpec/NestedGroups:
+  Max: 5
+
+# プレフィックスのみ、〜の場合といった設定ができない
+RSpec/ContextWording:
+  Enabled: false
+
+# ケース内のexpectの最大数
+# 結合的なテストも書きたいのでとりあえず5ぐらい設定する
+RSpec/MultipleExpectations:
+  Max: 5
+
+# is_expectedをOKにする
+RSpec/ImplicitSubject:
+  Enabled: false
+
+RSpec/MessageSpies:
+  EnforcedStyle: receive
+
+RSpec/FilePath:
+  Exclude:
+    - 'scripts/**/*'
+
+###################################### Naming ######################################
+
+# ファイルの名前の付け方
+# scripts下は無効
+Naming/FileName:
+  Exclude:
+    - 'scripts/**/*'
